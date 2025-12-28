@@ -1,0 +1,5 @@
+{
+  "name": "SmartPrint Spooler",
+  "description": "A print preparation tool that merges Word documents into a single PDF, automatically inserting blank pages for duplex printing compliance.",
+  "requestFramePermissions": []
+}
