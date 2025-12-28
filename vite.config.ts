@@ -5,6 +5,9 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
+      // THÊM DÒNG NÀY: Thay tên repo của bạn vào giữa 2 dấu gạch chéo
+      base: '/SmartPrintSpooler/', 
+      
       server: {
         port: 3000,
         host: '0.0.0.0',
