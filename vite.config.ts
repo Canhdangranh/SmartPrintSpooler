@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
-      // 1. Đảm bảo dòng base này chuẩn 100% với tên Repo (phân biệt hoa thường)
+      // 1. Đường dẫn cơ sở (Bắt buộc)
       base: '/SmartPrintSpooler/', 
       
       server: {
@@ -14,12 +14,9 @@ export default defineConfig(({ mode }) => {
       },
       plugins: [react()],
       
-      // 2. PHẦN QUAN TRỌNG CẦN SỬA LÀ Ở ĐÂY
+      // 2. "THUỐC GIẢI" lỗi trắng màn hình (Quan trọng nhất)
       define: {
-        // Thêm dòng này để ngăn trình duyệt báo lỗi "process is not defined"
-        'process.env': {}, 
-        
-        // Các dòng cũ giữ nguyên
+        'process.env': {}, // <--- Dòng này giúp web không bị sập
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
         'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
       },
